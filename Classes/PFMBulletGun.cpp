@@ -42,6 +42,32 @@ void PFMBulletGun::shoot()
     bullet->shootWithAngle(_component->angle);
 }
 
+//for script
+void PFMBulletGun::script_beginShoot()
+{
+    
+}
+
+void PFMBulletGun::script_shootWithAngle(float degree)
+{
+    PFMBullet* bullet = PFMBullet::createWithComponent(_component->getBulletComponent());
+    Vec2 position = convertToWorldSpace(Vec2(0,0));
+    bullet->setPosition(position);
+    bullet->shootWithAngle(_component->angle);
+    
+    script_preparedBullets.push_back(bullet);
+}
+
+void PFMBulletGun::script_endShoot()
+{
+    for(int i=0;i<script_preparedBullets.size();i++)
+    {
+        GameSession::currentSession()->rootNode->addChild(script_preparedBullets[i]);
+    }
+    
+    script_preparedBullets.clear();
+}
+
 void PFMBulletGun::update(float delta)
 {
     notShootTimeSum+=delta;
