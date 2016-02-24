@@ -1,0 +1,12 @@
+{
+    "presets": [{
+                "ref": "enemy1",
+                "position": {
+                "x": 100,
+                "y": 1000
+                },
+                "route":{
+                "type":"wavex"
+                }
+                }]
+}

@@ -1,0 +1,61 @@
+{
+    "size": {
+        "width": 100,
+        "height": 100
+    },
+    "components": [{
+                   "ref": "space_ship_body_1",
+                   "position": {
+                   "x": 0,
+                   "y": 0
+                   }
+                   },
+                   {
+                   "ref": "bullet_gun_1",
+                   "position": {
+                   "x": 50,
+                   "y": -20
+                   },
+                   "angle":10
+                   },
+                   {
+                   "ref": "bullet_gun_1",
+                   "position": {
+                   "x": 25,
+                   "y": -20
+                   },
+                   "angle":5
+                   },
+                   {
+                   "ref": "bullet_gun_1",
+                   "position": {
+                   "x": -50,
+                   "y": -20
+                   },
+                   "angle":-10
+                   },
+                   {
+                   "ref": "bullet_gun_1",
+                   "position": {
+                   "x": -25,
+                   "y": -20
+                   },
+                   "angle":-5
+                   },
+                   {
+                   "ref": "missle_launcher_1",
+                   "position": {
+                   "x": 30,
+                   "y": -20
+                   },
+                   "angle":0
+                   },
+                   {
+                   "ref": "missle_launcher_1",
+                   "position": {
+                   "x": -30,
+                   "y": -20
+                   },
+                   "angle":0
+                   }]
+}
