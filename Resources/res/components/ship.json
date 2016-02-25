@@ -14,6 +14,12 @@
         "shootInterval":400,
         "bulletComponent":"bullet_laser_blue"
     },
+    "bullet_gun_2":
+    {
+        "componentClass": "BulletGun",
+        "shootInterval":400,
+        "bulletComponent":"bullet_laser_red"
+    },
     "bullet_laser_blue":
     {
         "componentClass": "Bullet",
@@ -23,6 +29,17 @@
             "height": 80
         },
         "speed":500,
+        "damage":100
+    },
+    "bullet_laser_red":
+    {
+        "componentClass": "Bullet",
+        "spriteSheetName": "bullet_2.png",
+        "size": {
+            "width": 30,
+            "height": 30
+        },
+        "speed":100,
         "damage":100
     },
     "missle_launcher_1":

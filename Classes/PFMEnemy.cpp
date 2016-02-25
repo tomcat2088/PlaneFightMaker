@@ -17,7 +17,7 @@
 #include "PFMScriptCore.hpp"
 
 using namespace cocos2d;
-PFMEnemy::PFMEnemy() : xSpeed(5),ySpeed(-10)
+PFMEnemy::PFMEnemy() : xSpeed(2),ySpeed(-2)
 {
     scheduleUpdate();
 }
@@ -46,7 +46,9 @@ void PFMEnemy::reload()
         {
             PFMBulletGunComponent* bulletGunComponent = dynamic_cast<PFMBulletGunComponent*>(component);
             bulletGunComponent->angle = fabs(bulletGunComponent->angle) / bulletGunComponent->angle * 180 - bulletGunComponent->angle;
-            addChild(PFMBulletGun::createWithComponent(bulletGunComponent));
+           _mainBulletGun = PFMBulletGun::createWithComponent(bulletGunComponent);
+            _mainBulletGun->isAutoShoot = false;
+            addChild(_mainBulletGun);
         }
 //        else if([component isMemberOfClass:[AstMissleLauncherComponent class]])
 //        {
@@ -59,9 +61,22 @@ void PFMEnemy::reload()
 
 void PFMEnemy::update(float delta)
 {
-        std::string content =  FileUtils::getInstance()->getStringFromFile("xwave.lua");
-        PFMScriptCore::shared()->lua.set("target", this);
-        PFMScriptCore::shared()->lua.script(content);
+    std::string content =  FileUtils::getInstance()->getStringFromFile("xwave.lua");
+    PFMScriptCore::shared()->lua.set("target", this);
+    PFMScriptCore::shared()->lua.script(content);
+    
+    
+    gunShootTimer+=delta;
+    if(_mainBulletGun != NULL&& gunShootTimer > 4)
+    {
+        gunShootTimer = 0;
+        _mainBulletGun->script_beginShoot();
+        for(int i=0;i<=12;i++)
+        {
+            _mainBulletGun->script_shootWithAngle(i * 30 - 180,0.1 * i);
+        }
+        _mainBulletGun->script_endShoot();
+    }
 }
 
 cocos2d::Size PFMEnemy::getSize()

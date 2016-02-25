@@ -10,8 +10,8 @@
 #define PFMBulletGun_hpp
 
 #include <cocos2d.h>
+#include "PFMBullet.hpp"
 
-class PFMBullet;
 class PFMBulletGunComponent;
 class PFMBulletGun:public cocos2d::Node
 {
@@ -22,11 +22,11 @@ public:
     CREATE_FUNC(PFMBulletGun);
     virtual void update(float delta);
     void shoot();
-    
+    bool isAutoShoot;
     //for script
-    std::vector<PFMBullet*> script_preparedBullets;
+    cocos2d::Vector<PFMBullet*> script_preparedBullets;
     void script_beginShoot();
-    void script_shootWithAngle(float degree);
+    void script_shootWithAngle(float degree,float delay);
     void script_endShoot();
     static void registerToScript();
     

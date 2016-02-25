@@ -7,7 +7,7 @@
                    }
                    },
                    {
-                   "ref": "bullet_gun_1",
+                   "ref": "bullet_gun_2",
                    "position": {
                    "x": 50,
                    "y": -20
@@ -15,7 +15,7 @@
                    "angle":10
                    },
                    {
-                   "ref": "bullet_gun_1",
+                   "ref": "bullet_gun_2",
                    "position": {
                    "x": 25,
                    "y": -20
@@ -23,7 +23,7 @@
                    "angle":5
                    },
                    {
-                   "ref": "bullet_gun_1",
+                   "ref": "bullet_gun_2",
                    "position": {
                    "x": -50,
                    "y": -20
@@ -31,7 +31,7 @@
                    "angle":-10
                    },
                    {
-                   "ref": "bullet_gun_1",
+                   "ref": "bullet_gun_2",
                    "position": {
                    "x": -25,
                    "y": -20

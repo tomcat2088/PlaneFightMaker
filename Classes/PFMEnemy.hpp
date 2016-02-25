@@ -14,6 +14,7 @@
 
 class PFMEnemyPreset;
 class PFMEnemyMoveStrategy;
+class PFMBulletGun;
 class PFMEnemy : public cocos2d::Node
 {
 public:
@@ -35,5 +36,7 @@ public:
     CREATE_FUNC(PFMEnemy);
 private:
     PFMEnemyPreset* _preset;
+    PFMBulletGun* _mainBulletGun;
+    float gunShootTimer;
 };
 #endif /* PFMEnemy_hpp */

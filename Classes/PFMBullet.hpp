@@ -20,6 +20,7 @@ public:
     
     virtual void update(float delta);
     void shootWithAngle(float degree);
+    float shootDelay;
 private:
     PFMBulletComponent* _component;
     float _degree;

@@ -48,28 +48,42 @@ void PFMBulletGun::script_beginShoot()
     
 }
 
-void PFMBulletGun::script_shootWithAngle(float degree)
+void PFMBulletGun::script_shootWithAngle(float degree,float delay)
 {
     PFMBullet* bullet = PFMBullet::createWithComponent(_component->getBulletComponent());
     Vec2 position = convertToWorldSpace(Vec2(0,0));
     bullet->setPosition(position);
-    bullet->shootWithAngle(_component->angle);
+    bullet->shootDelay = delay;
+    bullet->shootWithAngle(degree);
     
-    script_preparedBullets.push_back(bullet);
+    script_preparedBullets.pushBack(bullet);
 }
 
 void PFMBulletGun::script_endShoot()
 {
-    for(int i=0;i<script_preparedBullets.size();i++)
-    {
-        GameSession::currentSession()->rootNode->addChild(script_preparedBullets[i]);
-    }
-    
-    script_preparedBullets.clear();
 }
 
 void PFMBulletGun::update(float delta)
 {
+    if(isAutoShoot == false)
+    {
+        for(int i=0;i<script_preparedBullets.size();i++)
+        {
+            if(script_preparedBullets.at(i)->shootDelay > 0)
+            {
+                script_preparedBullets.at(i)->shootDelay -= delta;
+            }
+            else
+            {
+                Vec2 position = convertToWorldSpace(Vec2(0,0));
+                script_preparedBullets.at(i)->setPosition(position);
+                GameSession::currentSession()->rootNode->addChild(script_preparedBullets.at(i));
+                script_preparedBullets.erase(script_preparedBullets.begin()+i);
+                i--;
+            }
+        }
+        return;
+    }
     notShootTimeSum+=delta;
     if(notShootTimeSum * 1000 >= _component->shootInterval)
     {
