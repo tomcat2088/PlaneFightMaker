@@ -17,6 +17,7 @@ public:
     PFMPlayer();
     void setPreset(PFMPlayerPreset* preset);
     void reload();
+    cocos2d::Size getSize();
 private:
     PFMPlayerPreset* _preset;
 };

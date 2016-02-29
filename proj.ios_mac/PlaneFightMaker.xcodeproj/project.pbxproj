@@ -258,6 +258,7 @@
 		8E2E0AF21C7373AC008F0155 /* PFMScriptCoreTypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScriptCoreTypes.hpp; sourceTree = "<group>"; };
 		8E2E0AF41C737948008F0155 /* PFMScriptSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMScriptSetup.cpp; sourceTree = "<group>"; };
 		8E2E0AF51C737948008F0155 /* PFMScriptSetup.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScriptSetup.hpp; sourceTree = "<group>"; };
+		8E9BA3531C84232F00447A9C /* PFMCollideMaskBits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMCollideMaskBits.h; sourceTree = "<group>"; };
 		8EA8AB171C69D4B400F2FF95 /* InfinityScrollableBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InfinityScrollableBackground.cpp; sourceTree = "<group>"; };
 		8EA8AB181C69D4B400F2FF95 /* InfinityScrollableBackground.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InfinityScrollableBackground.hpp; sourceTree = "<group>"; };
 		8EA8AB1B1C6A08F400F2FF95 /* PFMComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMComponent.cpp; sourceTree = "<group>"; };
@@ -640,6 +641,7 @@
 				8EC39E0E1C6B45030068178A /* PFMBullet.hpp */,
 				8EC39E101C6B45240068178A /* PFMSprite.cpp */,
 				8EC39E111C6B45240068178A /* PFMSprite.hpp */,
+				8E9BA3531C84232F00447A9C /* PFMCollideMaskBits.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";

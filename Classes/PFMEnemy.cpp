@@ -13,8 +13,9 @@
 #include "PFMSprite.hpp"
 #include "PFMBulletGun.hpp"
 #include "PFMBulletGunComponent.hpp"
-#include <cocos2d.h>
 #include "PFMScriptCore.hpp"
+
+#include <cocos2d.h>
 
 using namespace cocos2d;
 PFMEnemy::PFMEnemy() : xSpeed(2),ySpeed(-2)

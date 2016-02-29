@@ -10,6 +10,7 @@
 #include "PFMBulletGunComponent.hpp"
 #include "GameSession.hpp"
 #include "PFMBullet.hpp"
+#include "PFMCollideMaskBits.h"
 #include <cocos2d.h>
 
 using namespace cocos2d;
@@ -39,7 +40,25 @@ void PFMBulletGun::shoot()
     GameSession::currentSession()->rootNode->addChild(bullet);
     Vec2 position = convertToWorldSpace(Vec2(0,0));
     bullet->setPosition(position);
+    configBulletPhysicsBody(bullet);
     bullet->shootWithAngle(_component->angle);
+}
+
+void PFMBulletGun::configBulletPhysicsBody(PFMBullet* bullet)
+{
+    PhysicsBody* physicsBody = PhysicsBody::createBox(bullet->getBoundingBox().size);
+    physicsBody->setCollisionBitmask(0);
+    if(isHostByPlayer)
+    {
+        physicsBody->setCategoryBitmask(PFMCollideMaskBitsPlayerBullet);
+        physicsBody->setContactTestBitmask(PFMCollideMaskBitsEnemy);
+    }
+    else
+    {
+        physicsBody->setCategoryBitmask(PFMCollideMaskBitsEnemyBullet);
+        physicsBody->setContactTestBitmask(PFMCollideMaskBitsPlayer);
+    }
+    bullet->addComponent(physicsBody);
 }
 
 //for script
@@ -55,6 +74,7 @@ void PFMBulletGun::script_shootWithAngle(float degree,float delay)
     bullet->setPosition(position);
     bullet->shootDelay = delay;
     bullet->shootWithAngle(degree);
+    configBulletPhysicsBody(bullet);
     
     script_preparedBullets.pushBack(bullet);
 }

@@ -23,6 +23,7 @@ public:
     virtual void update(float delta);
     void shoot();
     bool isAutoShoot;
+    bool isHostByPlayer;
     //for script
     cocos2d::Vector<PFMBullet*> script_preparedBullets;
     void script_beginShoot();
@@ -33,5 +34,6 @@ public:
 private:
     PFMBulletGunComponent* _component;
     float notShootTimeSum;
+    void configBulletPhysicsBody(PFMBullet* bullet);
 };
 #endif /* PFMBulletGun_hpp */

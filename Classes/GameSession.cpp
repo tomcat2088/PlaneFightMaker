@@ -49,7 +49,7 @@ void GameSession::startInLayer(cocos2d::Layer* layer)
     _background->setAnchorPoint(cocos2d::Vec2(0,0));
     _background->setContentSize(Director::getInstance()->getVisibleSize());
     
-    PFMPlayer* player = new PFMPlayer();
+    player = new PFMPlayer();
     layer->addChild(player);
     player->setPreset(new PFMPlayerPreset());
     player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width/2, 100));

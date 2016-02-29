@@ -16,8 +16,16 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
     
-    
     GameSession* session;
+
+    
+    virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+
+    
+private:
+    cocos2d::Point _lastTouchPoint;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
