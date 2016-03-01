@@ -23,7 +23,7 @@ PFMEnemyPreset::PFMEnemyPreset()
 
 PFMEnemyPreset::PFMEnemyPreset(std::string presetPath)
 {
-    
+    loadFromPath(presetPath);
 }
 
 PFMEnemyPreset::~PFMEnemyPreset()

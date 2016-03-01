@@ -14,7 +14,7 @@
 #include "PFMBulletGun.hpp"
 #include "PFMBulletGunComponent.hpp"
 #include "PFMScriptCore.hpp"
-
+#include "PFMCollideMaskBits.h"
 #include <cocos2d.h>
 
 using namespace cocos2d;
@@ -41,6 +41,12 @@ void PFMEnemy::reload()
             PFMSpriteComponent* spriteComponent = dynamic_cast<PFMSpriteComponent*>(component);
             PFMSprite* sprite = PFMSprite::createWithComponent(spriteComponent);
             sprite->setRotation(180);
+            PhysicsBody* physicsBody = PhysicsBody::createBox(sprite->getBoundingBox().size);
+            physicsBody->setCollisionBitmask(0);
+            physicsBody->setCategoryBitmask(PFMCollideMaskBitsEnemy);
+            physicsBody->setContactTestBitmask(PFMCollideMaskBitsPlayerBullet | PFMCollideMaskBitsPlayer);
+            physicsBody->setTag(PFMPhysicsBodyTypeEnemy);
+            setPhysicsBody(physicsBody);
             addChild(sprite);
         }
         else if(component->componentClass == "BulletGun")

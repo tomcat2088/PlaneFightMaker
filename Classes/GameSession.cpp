@@ -10,11 +10,13 @@
 #include "InfinityScrollableBackground.hpp"
 #include "PFMPlayer.hpp"
 #include "PFMPlayerPreset.hpp"
-#include <cocos2d.h>
 #include "PFMEnemyPreset.hpp"
 #include "PFMEnemy.hpp"
 #include "PFMScriptCore.hpp"
 #include "PFMScriptSetup.hpp"
+#include "PFMLevelMap.hpp"
+#include "PFMLevelMapUnit.hpp"
+#include <cocos2d.h>
 
 using namespace cocos2d;
 GameSession* GameSession::_currentSession = NULL;
@@ -38,6 +40,7 @@ GameSession* GameSession::newSession()
 GameSession::GameSession():_gameSpeed(400),
 _currentMapLoadSegmentIndex(-1)
 {
+    levelMap = PFMLevelMap::mapFromFile("levels/level1.json");
 }
 
 void GameSession::startInLayer(cocos2d::Layer* layer)
@@ -73,12 +76,14 @@ void GameSession::loadMapUnits(int segmentIndex)
 {
  if(segmentIndex <= _currentMapLoadSegmentIndex)
      return;
-    printf("load %d",segmentIndex);
-    
-    PFMEnemyPreset* preset = new PFMEnemyPreset();
-    cocos2d::Node* node = preset->createNodeInstance();
-    node->setPosition(Director::getInstance()->getVisibleSize().width/2, Director::getInstance()->getVisibleSize().height + 200);
-    rootNode->addChild(node);
+    double visualHeight = Director::getInstance()->getVisibleSize().height;
+    std::vector<PFMLevelMapUnit*> units = levelMap->unitsInPage(segmentIndex);
+    for(int i=0;i<units.size();i++)
+    {
+        cocos2d::Point offset;
+        offset.y = visualHeight - _background->distance;
+        rootNode->addChild(units[i]->createNodeInstance(offset));
+    }
     
     _currentMapLoadSegmentIndex = segmentIndex;
 }

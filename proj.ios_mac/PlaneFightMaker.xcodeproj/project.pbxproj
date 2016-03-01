@@ -91,6 +91,7 @@
 		8E2E0AF01C737046008F0155 /* PFMScriptCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E0AEE1C737046008F0155 /* PFMScriptCore.cpp */; };
 		8E2E0AF31C7373AC008F0155 /* PFMScriptCoreTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E0AF11C7373AC008F0155 /* PFMScriptCoreTypes.cpp */; };
 		8E2E0AF61C737948008F0155 /* PFMScriptSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E0AF41C737948008F0155 /* PFMScriptSetup.cpp */; };
+		8E8B69C21C8581E6005A25C7 /* PFMPresetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8B69C01C8581E6005A25C7 /* PFMPresetManager.cpp */; };
 		8EA8AB191C69D4B400F2FF95 /* InfinityScrollableBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8AB171C69D4B400F2FF95 /* InfinityScrollableBackground.cpp */; };
 		8EA8AB1D1C6A08F400F2FF95 /* PFMComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8AB1B1C6A08F400F2FF95 /* PFMComponent.cpp */; };
 		8EA8AB201C6A0D2E00F2FF95 /* PFMComponentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8AB1E1C6A0D2E00F2FF95 /* PFMComponentManager.cpp */; };
@@ -258,6 +259,8 @@
 		8E2E0AF21C7373AC008F0155 /* PFMScriptCoreTypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScriptCoreTypes.hpp; sourceTree = "<group>"; };
 		8E2E0AF41C737948008F0155 /* PFMScriptSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMScriptSetup.cpp; sourceTree = "<group>"; };
 		8E2E0AF51C737948008F0155 /* PFMScriptSetup.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScriptSetup.hpp; sourceTree = "<group>"; };
+		8E8B69C01C8581E6005A25C7 /* PFMPresetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMPresetManager.cpp; sourceTree = "<group>"; };
+		8E8B69C11C8581E6005A25C7 /* PFMPresetManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMPresetManager.hpp; sourceTree = "<group>"; };
 		8E9BA3531C84232F00447A9C /* PFMCollideMaskBits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMCollideMaskBits.h; sourceTree = "<group>"; };
 		8EA8AB171C69D4B400F2FF95 /* InfinityScrollableBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InfinityScrollableBackground.cpp; sourceTree = "<group>"; };
 		8EA8AB181C69D4B400F2FF95 /* InfinityScrollableBackground.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InfinityScrollableBackground.hpp; sourceTree = "<group>"; };
@@ -601,6 +604,8 @@
 		8EA8AB151C69D40600F2FF95 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				8E8B69C01C8581E6005A25C7 /* PFMPresetManager.cpp */,
+				8E8B69C11C8581E6005A25C7 /* PFMPresetManager.hpp */,
 				8EA8AB1B1C6A08F400F2FF95 /* PFMComponent.cpp */,
 				8EA8AB1C1C6A08F400F2FF95 /* PFMComponent.hpp */,
 				8EA8AB1E1C6A0D2E00F2FF95 /* PFMComponentManager.cpp */,
@@ -833,6 +838,7 @@
 				8E2E0AE31C721F04008F0155 /* ltable.c in Sources */,
 				8E2E0AE91C721F04008F0155 /* lutf8lib.c in Sources */,
 				8EA8AB201C6A0D2E00F2FF95 /* PFMComponentManager.cpp in Sources */,
+				8E8B69C21C8581E6005A25C7 /* PFMPresetManager.cpp in Sources */,
 				8EC39E0C1C6B44EE0068178A /* PFMBulletGun.cpp in Sources */,
 				8E2E0ADB1C721F04008F0155 /* loadlib.c in Sources */,
 				8E2E0AF31C7373AC008F0155 /* PFMScriptCoreTypes.cpp in Sources */,

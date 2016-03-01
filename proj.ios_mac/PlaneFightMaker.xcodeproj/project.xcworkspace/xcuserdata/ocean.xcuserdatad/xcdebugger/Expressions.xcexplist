@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "PFMPlayer::PFMPlayer():PFMPlayer.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "getEventDispatcher()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PFMBullet::update(float):PFMBullet.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;getPhysicsBody()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PFMBulletGun::configBulletPhysicsBody(PFMBullet*):PFMBulletGun.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

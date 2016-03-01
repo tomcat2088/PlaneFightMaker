@@ -46,19 +46,20 @@ void PFMBulletGun::shoot()
 
 void PFMBulletGun::configBulletPhysicsBody(PFMBullet* bullet)
 {
-    PhysicsBody* physicsBody = PhysicsBody::createBox(bullet->getBoundingBox().size);
-    physicsBody->setCollisionBitmask(0);
+    Size size = bullet->getBoundingBox().size;
+    PhysicsBody* physicsBody = bullet->getPhysicsBody();
     if(isHostByPlayer)
     {
         physicsBody->setCategoryBitmask(PFMCollideMaskBitsPlayerBullet);
-        physicsBody->setContactTestBitmask(PFMCollideMaskBitsEnemy);
+        physicsBody->setContactTestBitmask(PFMCollideMaskBitsEnemy  | PFMCollideMaskBitsEnemyBullet);
+        physicsBody->setTag(PFMPhysicsBodyTypePlayerBullet);
     }
     else
     {
         physicsBody->setCategoryBitmask(PFMCollideMaskBitsEnemyBullet);
-        physicsBody->setContactTestBitmask(PFMCollideMaskBitsPlayer);
+        physicsBody->setContactTestBitmask(PFMCollideMaskBitsPlayer | PFMCollideMaskBitsPlayerBullet);
+        physicsBody->setTag(PFMPhysicsBodyTypeEnemyBullet);
     }
-    bullet->addComponent(physicsBody);
 }
 
 //for script

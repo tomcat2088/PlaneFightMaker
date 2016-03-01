@@ -17,4 +17,12 @@ typedef enum {
     PFMCollideMaskBitsEnemyBullet = 1 << 4
 }PFMCollideMaskBits;
 
+typedef enum {
+    PFMPhysicsBodyTypeEnemyBullet,
+    PFMPhysicsBodyTypePlayerBullet,
+    PFMPhysicsBodyTypePlayer,
+    PFMPhysicsBodyTypeEnemy
+}PFMPhysicsBodyType;
+
+
 #endif /* PFMCollideMaskBits_h */

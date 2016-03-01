@@ -16,7 +16,7 @@ class PFMPreset
 {
 public:
     virtual cocos2d::Node* createNodeInstance() = 0;
-    virtual void setExternValue(rapidjson::GenericValue<rapidjson::UTF8<>> value,std::string key)
+    virtual void setExternValue(rapidjson::GenericValue<rapidjson::UTF8<>>& value,std::string key)
     {
     
     }

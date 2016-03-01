@@ -11,6 +11,7 @@
 #include "PFMPlayerPreset.hpp"
 #include "PFMSpriteComponent.hpp"
 #include "PFMSprite.hpp"
+#include "PFMBullet.hpp"
 #include "PFMBulletGun.hpp"
 #include "PFMBulletGunComponent.hpp"
 #include "PFMCollideMaskBits.h"
@@ -20,11 +21,8 @@ using namespace cocos2d;
 PFMPlayer::PFMPlayer()
 {
     EventListenerPhysicsContact* eventListener = EventListenerPhysicsContact::create();
-    getEventDispatcher()->addEventListenerWithFixedPriority(eventListener, 100);
-    eventListener->onContactBegin = [](PhysicsContact& contact){
-        printf("contact here!!!!");
-        return true;
-    };
+    eventListener->onContactBegin = CC_CALLBACK_1(PFMPlayer::onContactBegin, this);
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, this);
 }
 
 void PFMPlayer::setPreset(PFMPlayerPreset* preset)
@@ -49,7 +47,7 @@ void PFMPlayer::reload()
             physicsBody->setCollisionBitmask(0);
             physicsBody->setCategoryBitmask(PFMCollideMaskBitsPlayer);
             physicsBody->setContactTestBitmask(PFMCollideMaskBitsEnemyBullet | PFMCollideMaskBitsEnemy);
-            sprite->addComponent(physicsBody);
+            setPhysicsBody(physicsBody);
             addChild(sprite);
         }
         else if(component->componentClass == "BulletGun")
@@ -80,4 +78,31 @@ cocos2d::Size PFMPlayer::getSize()
         originRect.merge(bounds);
     }
     return originRect.size;
+}
+
+bool PFMPlayer::onContactBegin(cocos2d::PhysicsContact &contact)
+{
+    if(contact.getShapeA()->getBody() == getPhysicsBody() ||
+       contact.getShapeB()->getBody() == getPhysicsBody())
+    {
+        PhysicsBody* other = contact.getShapeA()->getBody() == getPhysicsBody()?contact.getShapeB()->getBody() : contact.getShapeA()->getBody();
+        switch (other->getTag()) {
+            case PFMPhysicsBodyTypeEnemyBullet:
+            {
+                other->getOwner()->removeFromParentAndCleanup(true);
+                PFMBullet* bullet = dynamic_cast<PFMBullet*>(other->getOwner());
+                if(bullet != NULL)
+                {
+                    health -= bullet->damage;
+                }
+                break;
+            }
+            case PFMPhysicsBodyTypeEnemy:
+                other->getOwner()->removeFromParentAndCleanup(true);
+                break;
+            default:
+                break;
+        }
+    }
+    return true;
 }

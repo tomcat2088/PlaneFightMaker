@@ -14,10 +14,17 @@
 
 using namespace cocos2d;
 
+PFMBullet::PFMBullet()
+{
+
+}
+
 PFMBullet* PFMBullet::createWithComponent(PFMBulletComponent* component)
 {
     PFMBullet* sprite = PFMBullet::create();
     sprite->setComponent(component);
+    PhysicsBody* body = PhysicsBody::createBox(sprite->getBoundingBox().size);
+    sprite->addComponent(body);
     return sprite;
 }
 
@@ -25,6 +32,7 @@ void PFMBullet::setComponent(PFMBulletComponent *component)
 {
     _component = component;
     PFMSprite::setComponent(component);
+    damage = component->damage;
     setAnchorPoint(Vec2(0.5,0));
     scheduleUpdate();
 }

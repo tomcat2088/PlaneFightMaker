@@ -18,7 +18,9 @@ public:
     void setPreset(PFMPlayerPreset* preset);
     void reload();
     cocos2d::Size getSize();
+    float health;
 private:
     PFMPlayerPreset* _preset;
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
 };
 #endif /* PFMPlayer_hpp */

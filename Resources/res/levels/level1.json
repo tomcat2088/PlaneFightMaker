@@ -1,12 +1,48 @@
 {
-    "presets": [{
-                "ref": "enemy1",
-                "position": {
-                "x": 100,
-                "y": 1000
-                },
-                "route":{
-                "type":"wavex"
-                }
-                }]
+    "width":400,
+    "height":700,
+    "pages": [[{
+               "type":"Preset",
+               "ref": "enemy_preset_1",
+               "position": {
+               "x": 100,
+               "y": 10
+               },
+               "extern":{
+               "route":"wavex"
+               }
+               },
+               {
+               "type":"Preset",
+               "ref": "enemy1",
+               "position": {
+               "x": 30,
+               "y": 100
+               },
+               "extern":{
+               "route":"wavex"
+               }
+               },
+               {
+               "type":"Preset",
+               "ref": "enemy1",
+               "position": {
+               "x": 140,
+               "y": 200
+               },
+               "extern":{
+               "route":"wavex"
+               }
+               },
+               {
+               "type":"Preset",
+               "ref": "enemy1",
+               "position": {
+               "x": 300,
+               "y": 250
+               },
+               "extern":{
+               "route":"wavex"
+               }
+               }]]
 }

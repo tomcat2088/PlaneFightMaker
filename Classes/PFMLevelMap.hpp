@@ -14,9 +14,12 @@ class PFMLevelMapUnit;
 class PFMLevelMap
 {
 public:
-    std::vector<PFMLevelMapUnit*> units;
+    std::vector<std::vector<PFMLevelMapUnit*>> units;
+    double mapPageWidth;
+    double mapPageHeight;
 public:
+    PFMLevelMap(std::string mapFileContent);
     static PFMLevelMap* mapFromFile(std::string mapFile);
-    std::vector<PFMLevelMapUnit*> unitsInRect(cocos2d::Rect rect);
+    std::vector<PFMLevelMapUnit*> unitsInPage(int pageIndex);
 };
 #endif /* PFMLevelMap_hpp */
