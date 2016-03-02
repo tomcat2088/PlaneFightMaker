@@ -15,12 +15,16 @@ class PFMEnemyPreset : public PFMPreset
 {
 public:
     std::vector<PFMComponent*> components;
+    std::string routeStrategy;
+    std::string shootStrategy;
+    std::string compositionStrategy;
 public:
     PFMEnemyPreset();
     PFMEnemyPreset(std::string presetPath);
     void loadFromPath(std::string path);
     
     virtual cocos2d::Node* createNodeInstance();
+    virtual void setExternValue(rapidjson::GenericValue<rapidjson::UTF8<>>& value,std::string key);
 private:
     ~PFMEnemyPreset();
 };

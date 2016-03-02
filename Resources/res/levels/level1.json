@@ -9,40 +9,19 @@
                "y": 10
                },
                "extern":{
-               "route":"wavex"
+               "route":"xwave",
+               "shoot":"circle_shoot"
                }
                },
                {
                "type":"Preset",
-               "ref": "enemy1",
+               "ref": "enemy_preset_1",
                "position": {
-               "x": 30,
-               "y": 100
+               "x": 330,
+               "y": 600
                },
                "extern":{
-               "route":"wavex"
-               }
-               },
-               {
-               "type":"Preset",
-               "ref": "enemy1",
-               "position": {
-               "x": 140,
-               "y": 200
-               },
-               "extern":{
-               "route":"wavex"
-               }
-               },
-               {
-               "type":"Preset",
-               "ref": "enemy1",
-               "position": {
-               "x": 300,
-               "y": 250
-               },
-               "extern":{
-               "route":"wavex"
+               "composition":"enemy1"
                }
                }]]
 }

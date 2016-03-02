@@ -11,6 +11,7 @@
 #include "GameSession.hpp"
 #include "PFMBullet.hpp"
 #include "PFMCollideMaskBits.h"
+#include "PFMScriptCore.hpp"
 #include <cocos2d.h>
 
 using namespace cocos2d;
@@ -25,6 +26,11 @@ PFMBulletGun* PFMBulletGun::createWithComponent(PFMBulletGunComponent* component
 PFMBulletGun::PFMBulletGun():notShootTimeSum(0)
 {
     
+}
+
+PFMBulletGun::~PFMBulletGun()
+{
+    printf("bullet gun is destruct");
 }
 
 void PFMBulletGun::setComponent(PFMBulletGunComponent* component)
@@ -82,6 +88,15 @@ void PFMBulletGun::script_shootWithAngle(float degree,float delay)
 
 void PFMBulletGun::script_endShoot()
 {
+}
+
+void PFMBulletGun::registerToScript()
+{
+    PFMScriptCore* core = PFMScriptCore::shared();
+    core->lua.new_userdata<PFMBulletGun>("BulletGun",
+                                     "shootWithAngle", &PFMBulletGun::script_shootWithAngle,
+                                     "endShoot", &PFMBulletGun::script_endShoot,
+                                     "beginShoot", &PFMBulletGun::script_beginShoot);
 }
 
 void PFMBulletGun::update(float delta)

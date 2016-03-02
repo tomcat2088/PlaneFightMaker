@@ -17,6 +17,7 @@ class PFMBulletGun:public cocos2d::Node
 {
 public:
     PFMBulletGun();
+    ~PFMBulletGun();
     static PFMBulletGun* createWithComponent(PFMBulletGunComponent* component);
     void setComponent(PFMBulletGunComponent* component);
     CREATE_FUNC(PFMBulletGun);

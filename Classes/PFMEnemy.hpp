@@ -19,6 +19,7 @@ class PFMEnemy : public cocos2d::Node
 {
 public:
     PFMEnemy();
+    ~PFMEnemy();
     void setPreset(PFMEnemyPreset* preset);
     void reload();
     void update(float delta);
@@ -29,7 +30,7 @@ public:
     float ySpeed;
     void script_setPosition(PFMScriptTypePoint position);
     float script_getPositionX();
-     float script_getPositionY();
+    float script_getPositionY();
     PFMScriptTypeSize script_getSize();
     static void registerToScript();
     
@@ -37,6 +38,7 @@ public:
 private:
     PFMEnemyPreset* _preset;
     PFMBulletGun* _mainBulletGun;
+    cocos2d::Vector<PFMBulletGun*> _bulletGuns;
     float gunShootTimer;
 };
 #endif /* PFMEnemy_hpp */

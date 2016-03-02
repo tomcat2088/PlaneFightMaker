@@ -15,12 +15,18 @@
 #include "PFMBulletGunComponent.hpp"
 #include "PFMScriptCore.hpp"
 #include "PFMCollideMaskBits.h"
+#include "PFMScriptSetup.hpp"
 #include <cocos2d.h>
 
 using namespace cocos2d;
 PFMEnemy::PFMEnemy() : xSpeed(2),ySpeed(-2)
 {
     scheduleUpdate();
+}
+
+PFMEnemy::~PFMEnemy()
+{
+    printf("Enemy is destruct");
 }
 
 void PFMEnemy::setPreset(PFMEnemyPreset* preset)
@@ -53,37 +59,46 @@ void PFMEnemy::reload()
         {
             PFMBulletGunComponent* bulletGunComponent = dynamic_cast<PFMBulletGunComponent*>(component);
             bulletGunComponent->angle = fabs(bulletGunComponent->angle) / bulletGunComponent->angle * 180 - bulletGunComponent->angle;
-           _mainBulletGun = PFMBulletGun::createWithComponent(bulletGunComponent);
-            _mainBulletGun->isAutoShoot = false;
-            addChild(_mainBulletGun);
+            PFMBulletGun* bulletGun = PFMBulletGun::createWithComponent(bulletGunComponent);
+            bulletGun->isAutoShoot = false;
+            addChild(bulletGun);
+            _bulletGuns.pushBack(bulletGun);
         }
-//        else if([component isMemberOfClass:[AstMissleLauncherComponent class]])
-//        {
-//            AstMissleLauncher* missleLauncher = [[AstMissleLauncher alloc]initWithSession:self.session];
-//            [self addNode:missleLauncher.rootNode];
-//            [missleLauncher setComponent:(AstMissleLauncherComponent*)component];
-//        }
+        //        else if([component isMemberOfClass:[AstMissleLauncherComponent class]])
+        //        {
+        //            AstMissleLauncher* missleLauncher = [[AstMissleLauncher alloc]initWithSession:self.session];
+        //            [self addNode:missleLauncher.rootNode];
+        //            [missleLauncher setComponent:(AstMissleLauncherComponent*)component];
+        //        }
     }
 }
 
 void PFMEnemy::update(float delta)
 {
-    std::string content =  FileUtils::getInstance()->getStringFromFile("xwave.lua");
+    std::string content = PFMScriptSetup::shared()->routeStrategyScriptWithName(_preset->routeStrategy);
     PFMScriptCore::shared()->lua.set("target", this);
     PFMScriptCore::shared()->lua.script(content);
     
     
-    gunShootTimer+=delta;
-    if(_mainBulletGun != NULL&& gunShootTimer > 4)
+    content = PFMScriptSetup::shared()->bulletShootStrategyScriptWithName(_preset->shootStrategy);
+    PFMScriptCore::shared()->lua.set("target", this);
+    PFMScriptCore::shared()->lua.set("bullet_gun_count", _bulletGuns.size());
+    for(int i=0;i<_bulletGuns.size();i++)
     {
-        gunShootTimer = 0;
-        _mainBulletGun->script_beginShoot();
-        for(int i=0;i<=12;i++)
-        {
-            _mainBulletGun->script_shootWithAngle(i * 30 - 180,0.1 * i);
-        }
-        _mainBulletGun->script_endShoot();
+        PFMScriptCore::shared()->lua.set("bullet_gun_" + std::to_string(i), _bulletGuns.at(i));
     }
+    PFMScriptCore::shared()->lua.script(content);
+    
+    content = PFMScriptSetup::shared()->compositionStrategyScriptWithName(_preset->compositionStrategy);
+    PFMScriptCore::shared()->lua.set("target", this);
+    PFMScriptCore::shared()->lua.set("bullet_gun_count", _bulletGuns.size());
+    for(int i=0;i<_bulletGuns.size();i++)
+    {
+        PFMScriptCore::shared()->lua.set("bullet_gun_" + std::to_string(i), _bulletGuns.at(i));
+    }
+    PFMScriptCore::shared()->lua.script(content);
+    
+    gunShootTimer+=delta;
 }
 
 cocos2d::Size PFMEnemy::getSize()
@@ -129,5 +144,6 @@ void PFMEnemy::registerToScript()
                                      "setPosition", &PFMEnemy::script_setPosition,
                                      "getSize", &PFMEnemy::script_getSize,
                                      "xSpeed",&PFMEnemy::xSpeed,
-                                     "ySpeed",&PFMEnemy::ySpeed);
+                                     "ySpeed",&PFMEnemy::ySpeed,
+                                     "gunShootTimer",&PFMEnemy::gunShootTimer);
 }

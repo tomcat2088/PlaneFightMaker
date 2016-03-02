@@ -72,3 +72,19 @@ cocos2d::Node* PFMEnemyPreset::createNodeInstance()
     enemy->setPreset(this);
     return enemy;
 }
+
+void PFMEnemyPreset::setExternValue(rapidjson::GenericValue<rapidjson::UTF8<>>& value,std::string key)
+{
+    if(key == "route")
+    {
+        routeStrategy = value.GetString();
+    }
+    else if(key == "shoot")
+    {
+        shootStrategy = value.GetString();
+    }
+    else if(key == "composition")
+    {
+        compositionStrategy = value.GetString();
+    }
+}

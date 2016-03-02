@@ -15,5 +15,8 @@ class PFMScriptSetup
 public:
     static PFMScriptSetup* shared();
     void initGlobalValues();
+    std::string routeStrategyScriptWithName(std::string name);
+    std::string bulletShootStrategyScriptWithName(std::string name);
+    std::string compositionStrategyScriptWithName(std::string name);
 };
 #endif /* PFMScriptSetup_hpp */
