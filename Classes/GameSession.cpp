@@ -16,6 +16,7 @@
 #include "PFMScriptSetup.hpp"
 #include "PFMLevelMap.hpp"
 #include "PFMLevelMapUnit.hpp"
+#include "PFMBoomManager.hpp"
 #include <cocos2d.h>
 
 using namespace cocos2d;
@@ -46,6 +47,7 @@ _currentMapLoadSegmentIndex(-1)
 void GameSession::startInLayer(cocos2d::Layer* layer)
 {
     rootNode = layer;
+    PFMBoomManager::shared()->rootNode = rootNode;
     _background = new InfinityScrollableBackground("img_bg_level_1.jpg");
     _background->scrollSpeed = -_gameSpeed;
     layer->addChild(_background);
@@ -61,6 +63,14 @@ void GameSession::startInLayer(cocos2d::Layer* layer)
 void GameSession::update(float delta)
 {
     tryLoadNewMapUnits();
+    
+    if(player->health <= 0)
+    {
+        rootNode->removeAllChildren();
+        _background->distance = 0;
+        _currentMapLoadSegmentIndex = -1;
+        startInLayer(rootNode);
+    }
 }
 
 void GameSession::tryLoadNewMapUnits()

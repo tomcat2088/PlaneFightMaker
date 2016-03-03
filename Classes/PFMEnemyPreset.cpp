@@ -87,4 +87,8 @@ void PFMEnemyPreset::setExternValue(rapidjson::GenericValue<rapidjson::UTF8<>>& 
     {
         compositionStrategy = value.GetString();
     }
+    else if(key == "health")
+    {
+        health = value.GetDouble();
+    }
 }

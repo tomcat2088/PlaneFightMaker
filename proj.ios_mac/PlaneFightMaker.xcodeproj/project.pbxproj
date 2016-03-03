@@ -106,6 +106,7 @@
 		8EC39E121C6B45240068178A /* PFMSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC39E101C6B45240068178A /* PFMSprite.cpp */; };
 		8EC39E181C6B662A0068178A /* PFMEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC39E141C6B662A0068178A /* PFMEnemy.cpp */; };
 		8EC39E191C6B662A0068178A /* PFMEnemyPreset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC39E161C6B662A0068178A /* PFMEnemyPreset.cpp */; };
+		8EC4DCC61C8840040035B726 /* PFMBoomManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4DCC41C8840040035B726 /* PFMBoomManager.cpp */; };
 		8ED7FBF31C6AFBED00C05C99 /* PFMPlayerPreset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FBF11C6AFBED00C05C99 /* PFMPlayerPreset.cpp */; };
 		8ED7FBF61C6B160200C05C99 /* PFMBulletGunComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FBF41C6B160200C05C99 /* PFMBulletGunComponent.cpp */; };
 		8ED7FBF91C6B17FE00C05C99 /* PFMBulletComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FBF71C6B17FE00C05C99 /* PFMBulletComponent.cpp */; };
@@ -290,6 +291,8 @@
 		8EC39E151C6B662A0068178A /* PFMEnemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMEnemy.hpp; sourceTree = "<group>"; };
 		8EC39E161C6B662A0068178A /* PFMEnemyPreset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMEnemyPreset.cpp; sourceTree = "<group>"; };
 		8EC39E171C6B662A0068178A /* PFMEnemyPreset.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMEnemyPreset.hpp; sourceTree = "<group>"; };
+		8EC4DCC41C8840040035B726 /* PFMBoomManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMBoomManager.cpp; sourceTree = "<group>"; };
+		8EC4DCC51C8840040035B726 /* PFMBoomManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMBoomManager.hpp; sourceTree = "<group>"; };
 		8ED7FBF11C6AFBED00C05C99 /* PFMPlayerPreset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMPlayerPreset.cpp; sourceTree = "<group>"; };
 		8ED7FBF21C6AFBED00C05C99 /* PFMPlayerPreset.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMPlayerPreset.hpp; sourceTree = "<group>"; };
 		8ED7FBF41C6B160200C05C99 /* PFMBulletGunComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMBulletGunComponent.cpp; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 				8EBD98331C6DCE5200A800D3 /* PFMLevelMapUnit.hpp */,
 				8E2E0AF41C737948008F0155 /* PFMScriptSetup.cpp */,
 				8E2E0AF51C737948008F0155 /* PFMScriptSetup.hpp */,
+				8EC4DCC41C8840040035B726 /* PFMBoomManager.cpp */,
+				8EC4DCC51C8840040035B726 /* PFMBoomManager.hpp */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -839,6 +844,7 @@
 				8E2E0AE91C721F04008F0155 /* lutf8lib.c in Sources */,
 				8EA8AB201C6A0D2E00F2FF95 /* PFMComponentManager.cpp in Sources */,
 				8E8B69C21C8581E6005A25C7 /* PFMPresetManager.cpp in Sources */,
+				8EC4DCC61C8840040035B726 /* PFMBoomManager.cpp in Sources */,
 				8EC39E0C1C6B44EE0068178A /* PFMBulletGun.cpp in Sources */,
 				8E2E0ADB1C721F04008F0155 /* loadlib.c in Sources */,
 				8E2E0AF31C7373AC008F0155 /* PFMScriptCoreTypes.cpp in Sources */,

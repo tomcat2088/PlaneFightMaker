@@ -18,7 +18,7 @@
 #include <cocos2d.h>
 
 using namespace cocos2d;
-PFMPlayer::PFMPlayer()
+PFMPlayer::PFMPlayer():health(100)
 {
     EventListenerPhysicsContact* eventListener = EventListenerPhysicsContact::create();
     eventListener->onContactBegin = CC_CALLBACK_1(PFMPlayer::onContactBegin, this);
@@ -89,12 +89,12 @@ bool PFMPlayer::onContactBegin(cocos2d::PhysicsContact &contact)
         switch (other->getTag()) {
             case PFMPhysicsBodyTypeEnemyBullet:
             {
-                other->getOwner()->removeFromParentAndCleanup(true);
-                PFMBullet* bullet = dynamic_cast<PFMBullet*>(other->getOwner());
+                PFMBullet* bullet = dynamic_cast<PFMBullet*>(other->getNode());
                 if(bullet != NULL)
                 {
                     health -= bullet->damage;
                 }
+                other->getOwner()->removeFromParentAndCleanup(true);
                 break;
             }
             case PFMPhysicsBodyTypeEnemy:

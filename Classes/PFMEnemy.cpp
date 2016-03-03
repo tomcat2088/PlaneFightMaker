@@ -16,11 +16,15 @@
 #include "PFMScriptCore.hpp"
 #include "PFMCollideMaskBits.h"
 #include "PFMScriptSetup.hpp"
+#include "PFMBoomManager.hpp"
 #include <cocos2d.h>
 
 using namespace cocos2d;
-PFMEnemy::PFMEnemy() : xSpeed(2),ySpeed(-2)
+PFMEnemy::PFMEnemy() : xSpeed(2),ySpeed(-2),totalHealth(2000),health(2000),_healthBar(NULL)
 {
+    EventListenerPhysicsContact* eventListener = EventListenerPhysicsContact::create();
+    eventListener->onContactBegin = CC_CALLBACK_1(PFMEnemy::onContactBegin, this);
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, this);
     scheduleUpdate();
 }
 
@@ -32,6 +36,8 @@ PFMEnemy::~PFMEnemy()
 void PFMEnemy::setPreset(PFMEnemyPreset* preset)
 {
     _preset = preset;
+    totalHealth = preset->health;
+    health = preset->health;
     reload();
 }
 
@@ -71,10 +77,54 @@ void PFMEnemy::reload()
         //            [missleLauncher setComponent:(AstMissleLauncherComponent*)component];
         //        }
     }
+    
+    if(_healthBar != NULL)
+    {
+        _healthBar->removeFromParent();
+    }
+    _healthBar = LayerColor::create(Color4B(200, 30, 30, 255));
+    _healthBar->setContentSize(Size(100,5));
+    addChild(_healthBar);
+    Size allSize = getSize();
+    _healthBar->setPosition(Vec2(-50,allSize.height/2 + 10));
+}
+
+bool PFMEnemy::onContactBegin(cocos2d::PhysicsContact &contact)
+{
+    if(contact.getShapeA()->getBody() == getPhysicsBody() ||
+       contact.getShapeB()->getBody() == getPhysicsBody())
+    {
+        PhysicsBody* other = contact.getShapeA()->getBody() == getPhysicsBody()?contact.getShapeB()->getBody() : contact.getShapeA()->getBody();
+        switch (other->getTag()) {
+            case PFMPhysicsBodyTypePlayerBullet:
+            {
+                PFMBullet* bullet = dynamic_cast<PFMBullet*>(other->getOwner());
+                if(bullet != NULL)
+                {
+                    health -= bullet->damage;
+                }
+                const PhysicsContactData* contactData = contact.getContactData();
+                PFMBoomManager::shared()->boomAt("", contactData->points[0]);
+                other->getOwner()->removeFromParentAndCleanup(true);
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    return true;
 }
 
 void PFMEnemy::update(float delta)
 {
+    if(health <= 0)
+    {
+        removeFromParentAndCleanup(true);
+        return;
+    }
+    
+    _healthBar->setContentSize(Size(health / totalHealth * 100,5));
+    
     std::string content = PFMScriptSetup::shared()->routeStrategyScriptWithName(_preset->routeStrategy);
     PFMScriptCore::shared()->lua.set("target", this);
     PFMScriptCore::shared()->lua.script(content);

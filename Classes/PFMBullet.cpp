@@ -24,7 +24,7 @@ PFMBullet* PFMBullet::createWithComponent(PFMBulletComponent* component)
     PFMBullet* sprite = PFMBullet::create();
     sprite->setComponent(component);
     PhysicsBody* body = PhysicsBody::createBox(sprite->getBoundingBox().size);
-    sprite->addComponent(body);
+    sprite->setPhysicsBody(body);
     return sprite;
 }
 

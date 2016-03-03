@@ -24,6 +24,8 @@ public:
     void reload();
     void update(float delta);
     cocos2d::Size getSize();
+    float health;
+    float totalHealth;
     
     //for script
     float xSpeed;
@@ -39,6 +41,9 @@ private:
     PFMEnemyPreset* _preset;
     PFMBulletGun* _mainBulletGun;
     cocos2d::Vector<PFMBulletGun*> _bulletGuns;
+    cocos2d::LayerColor* _healthBar;
     float gunShootTimer;
+    
+    bool onContactBegin(cocos2d::PhysicsContact &contact);
 };
 #endif /* PFMEnemy_hpp */

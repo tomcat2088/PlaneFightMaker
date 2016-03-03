@@ -18,6 +18,7 @@ public:
     std::string routeStrategy;
     std::string shootStrategy;
     std::string compositionStrategy;
+    float health;
 public:
     PFMEnemyPreset();
     PFMEnemyPreset(std::string presetPath);
