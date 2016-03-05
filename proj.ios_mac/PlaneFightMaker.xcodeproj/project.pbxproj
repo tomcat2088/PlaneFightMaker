@@ -91,6 +91,9 @@
 		8E2E0AF01C737046008F0155 /* PFMScriptCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E0AEE1C737046008F0155 /* PFMScriptCore.cpp */; };
 		8E2E0AF31C7373AC008F0155 /* PFMScriptCoreTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E0AF11C7373AC008F0155 /* PFMScriptCoreTypes.cpp */; };
 		8E2E0AF61C737948008F0155 /* PFMScriptSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E0AF41C737948008F0155 /* PFMScriptSetup.cpp */; };
+		8E3A1FEC1C89666C00F2D775 /* PFMScenery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3A1FEA1C89666C00F2D775 /* PFMScenery.cpp */; };
+		8E3A1FEF1C8966CE00F2D775 /* PFMSceneryPreset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3A1FED1C8966CE00F2D775 /* PFMSceneryPreset.cpp */; };
+		8E3A1FF21C896F6E00F2D775 /* PFMGameConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3A1FF01C896F6E00F2D775 /* PFMGameConfig.cpp */; };
 		8E8B69C21C8581E6005A25C7 /* PFMPresetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8B69C01C8581E6005A25C7 /* PFMPresetManager.cpp */; };
 		8EA8AB191C69D4B400F2FF95 /* InfinityScrollableBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8AB171C69D4B400F2FF95 /* InfinityScrollableBackground.cpp */; };
 		8EA8AB1D1C6A08F400F2FF95 /* PFMComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8AB1B1C6A08F400F2FF95 /* PFMComponent.cpp */; };
@@ -260,6 +263,13 @@
 		8E2E0AF21C7373AC008F0155 /* PFMScriptCoreTypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScriptCoreTypes.hpp; sourceTree = "<group>"; };
 		8E2E0AF41C737948008F0155 /* PFMScriptSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMScriptSetup.cpp; sourceTree = "<group>"; };
 		8E2E0AF51C737948008F0155 /* PFMScriptSetup.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScriptSetup.hpp; sourceTree = "<group>"; };
+		8E3A1FEA1C89666C00F2D775 /* PFMScenery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMScenery.cpp; sourceTree = "<group>"; };
+		8E3A1FEB1C89666C00F2D775 /* PFMScenery.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMScenery.hpp; sourceTree = "<group>"; };
+		8E3A1FED1C8966CE00F2D775 /* PFMSceneryPreset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMSceneryPreset.cpp; sourceTree = "<group>"; };
+		8E3A1FEE1C8966CE00F2D775 /* PFMSceneryPreset.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMSceneryPreset.hpp; sourceTree = "<group>"; };
+		8E3A1FF01C896F6E00F2D775 /* PFMGameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMGameConfig.cpp; sourceTree = "<group>"; };
+		8E3A1FF11C896F6E00F2D775 /* PFMGameConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMGameConfig.hpp; sourceTree = "<group>"; };
+		8E3A1FF71C8970FB00F2D775 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = json.hpp; path = ../ThirdParty/json/src/json.hpp; sourceTree = "<group>"; };
 		8E8B69C01C8581E6005A25C7 /* PFMPresetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PFMPresetManager.cpp; sourceTree = "<group>"; };
 		8E8B69C11C8581E6005A25C7 /* PFMPresetManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PFMPresetManager.hpp; sourceTree = "<group>"; };
 		8E9BA3531C84232F00447A9C /* PFMCollideMaskBits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMCollideMaskBits.h; sourceTree = "<group>"; };
@@ -439,6 +449,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8E3A1FF31C8970C700F2D775 /* ThirdParty */,
 				8E2E09C21C721AF6008F0155 /* LuaBinding */,
 				8EA8AB161C69D41600F2FF95 /* Widgets */,
 				8EA8AB151C69D40600F2FF95 /* Foundation */,
@@ -604,6 +615,33 @@
 			path = lua;
 			sourceTree = "<group>";
 		};
+		8E3A1FE91C8965D800F2D775 /* Scenery */ = {
+			isa = PBXGroup;
+			children = (
+				8E3A1FEA1C89666C00F2D775 /* PFMScenery.cpp */,
+				8E3A1FEB1C89666C00F2D775 /* PFMScenery.hpp */,
+				8E3A1FED1C8966CE00F2D775 /* PFMSceneryPreset.cpp */,
+				8E3A1FEE1C8966CE00F2D775 /* PFMSceneryPreset.hpp */,
+			);
+			name = Scenery;
+			sourceTree = "<group>";
+		};
+		8E3A1FF31C8970C700F2D775 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				8E3A1FF61C8970ED00F2D775 /* json */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		8E3A1FF61C8970ED00F2D775 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				8E3A1FF71C8970FB00F2D775 /* json.hpp */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
 		8EA8AB151C69D40600F2FF95 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +661,8 @@
 				8ED7FBF81C6B17FE00C05C99 /* PFMBulletComponent.hpp */,
 				8EBD98351C6DD01200A800D3 /* PFMPreset.cpp */,
 				8EBD98361C6DD01200A800D3 /* PFMPreset.hpp */,
+				8E3A1FF01C896F6E00F2D775 /* PFMGameConfig.cpp */,
+				8E3A1FF11C896F6E00F2D775 /* PFMGameConfig.hpp */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -630,6 +670,7 @@
 		8EA8AB161C69D41600F2FF95 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				8E3A1FE91C8965D800F2D775 /* Scenery */,
 				8EBD98381C6F5DFB00A800D3 /* Common */,
 				8ED7FBED1C6AFBC300C05C99 /* Player */,
 				8EC39E131C6B65F30068178A /* Enemy */,
@@ -820,6 +861,7 @@
 				8ED7FBF31C6AFBED00C05C99 /* PFMPlayerPreset.cpp in Sources */,
 				8EA8AB1D1C6A08F400F2FF95 /* PFMComponent.cpp in Sources */,
 				8E2E0AD01C721F04008F0155 /* ldblib.c in Sources */,
+				8E3A1FEC1C89666C00F2D775 /* PFMScenery.cpp in Sources */,
 				8E2E0AD51C721F04008F0155 /* lgc.c in Sources */,
 				8E2E0AE01C721F04008F0155 /* lstate.c in Sources */,
 				8ED7FBF61C6B160200C05C99 /* PFMBulletGunComponent.cpp in Sources */,
@@ -833,6 +875,7 @@
 				8E2E0AD61C721F04008F0155 /* linit.c in Sources */,
 				8E2E0ACC1C721F04008F0155 /* lbitlib.c in Sources */,
 				8E2E0AC91C721F04008F0155 /* lapi.c in Sources */,
+				8E3A1FEF1C8966CE00F2D775 /* PFMSceneryPreset.cpp in Sources */,
 				8E2E0ADA1C721F04008F0155 /* lmem.c in Sources */,
 				8E2E0ADF1C721F04008F0155 /* lparser.c in Sources */,
 				8E2E0ACF1C721F04008F0155 /* lctype.c in Sources */,
@@ -868,6 +911,7 @@
 				8E2E0AE51C721F04008F0155 /* ltm.c in Sources */,
 				8E2E0AE21C721F04008F0155 /* lstrlib.c in Sources */,
 				8ED7FBFC1C6B198700C05C99 /* PFMPlayer.cpp in Sources */,
+				8E3A1FF21C896F6E00F2D775 /* PFMGameConfig.cpp in Sources */,
 				8E2E0AD11C721F04008F0155 /* ldebug.c in Sources */,
 				8EC39E121C6B45240068178A /* PFMSprite.cpp in Sources */,
 				8E2E0AD21C721F04008F0155 /* ldo.c in Sources */,

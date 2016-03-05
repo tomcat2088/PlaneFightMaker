@@ -1,6 +1,6 @@
 {
-    "width":400,
-    "height":700,
+    "pageHeight":1000,
+    "background":"img_bg_level_1.jpg",
     "pages": [[{
                "type":"Preset",
                "ref": "enemy_preset_1",

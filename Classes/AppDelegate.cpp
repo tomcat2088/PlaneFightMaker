@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "PFMGameConfig.hpp"
 
 USING_NS_CC;
 
@@ -30,8 +31,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
         glview = GLViewImpl::createWithRect("PlaneFightMaker", Rect(0, 0, 640, 1140));
         director->setOpenGLView(glview);
     }
-
-    director->getOpenGLView()->setDesignResolutionSize(640, 1140, ResolutionPolicy::SHOW_ALL);
+    
+    PFMGameConfig* gameConfig = PFMGameConfig::shared();
+    director->getOpenGLView()->setDesignResolutionSize(gameConfig->width, gameConfig->height, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AA2DA982D8C36EA81235B72E712CCF69C9FA37CF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AA2DA982D8C36EA81235B72E712CCF69C9FA37CF" : 0,
+    "33423835B021EF0D85C3E0D211CDA5FCB7775AEB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DBE3F6A1-E043-4380-852C-55D5E39886DA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AA2DA982D8C36EA81235B72E712CCF69C9FA37CF" : "PlaneFightMaker\/",
+    "33423835B021EF0D85C3E0D211CDA5FCB7775AEB" : "PlaneFightMaker\/ThirdParty\/json\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PlaneFightMaker",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "proj.ios_mac\/PlaneFightMaker.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nlohmann\/json.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "33423835B021EF0D85C3E0D211CDA5FCB7775AEB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tomcat2088\/PlaneFightMaker.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AA2DA982D8C36EA81235B72E712CCF69C9FA37CF"
+    }
+  ]
+}

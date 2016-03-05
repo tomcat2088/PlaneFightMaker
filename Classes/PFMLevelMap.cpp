@@ -28,8 +28,8 @@ PFMLevelMap::PFMLevelMap(std::string mapFileContent)
     }
     if(document.IsObject())
     {
-        float width = document["width"].GetDouble();
-        float height = document["height"].GetDouble();
+        mapPageHeight = document["pageHeight"].GetDouble();
+        backgroundImage = document["background"].GetString();
         
         if(document["pages"].IsArray())
         {

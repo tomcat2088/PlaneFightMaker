@@ -15,8 +15,8 @@ class PFMLevelMap
 {
 public:
     std::vector<std::vector<PFMLevelMapUnit*>> units;
-    double mapPageWidth;
     double mapPageHeight;
+    std::string backgroundImage;
 public:
     PFMLevelMap(std::string mapFileContent);
     static PFMLevelMap* mapFromFile(std::string mapFile);
