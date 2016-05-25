@@ -11,7 +11,7 @@
                "extern":{
                "route":"xwave",
                "shoot":"circle_shoot",
-               "health":20000
+               "health":300
                }
                },
                {
@@ -23,7 +23,7 @@
                },
                "extern":{
                "composition":"enemy1",
-               "health":20000
+               "health":900
                }
                }]]
 }
